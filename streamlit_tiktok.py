@@ -91,7 +91,7 @@ def transform(response, results=[]):
         print(product_id)
         name = transformed_product_base['title']
         price_pattern = re.compile(r'(\d+\.?\d*)')
-        prices = price_pattern.findall(transformed_product_base['real_price'])
+        prices = price_pattern.findall(transformed_product_base['real_price'].replace('.', ''))
         if len(prices) == 2:
             min_price = int(prices[0].replace('.', ''))
             max_price = int(prices[1].replace('.', ''))
