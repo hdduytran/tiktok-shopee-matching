@@ -85,7 +85,7 @@ def make_parallel(func):
         :return:
         """
         # number_of_workers = int(os.cpu_count() * 2)
-        number_of_workers = 16
+        number_of_workers = 4
         # if len(lst) < number_of_workers:
         #     number_of_workers = len(lst)
 

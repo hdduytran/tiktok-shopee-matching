@@ -1,5 +1,32 @@
 
 import re
+
+def convert_big_number(x):
+    if x is None:
+        return x
+    x= x.replace(",", ".")
+    if x is None:
+        return x
+    if "k" in x:
+        return float(x.replace("k", "")) * 1000
+    if "m" in x:
+        return float(x.replace("m", "")) * 1000000
+    return float(x)
+
+def parse_price(price):
+    if price is None:
+        return None, None
+    if "-" not in price:
+        min_price =None
+        max_price = price.replace("₫", "").replace(".", "").strip()
+    else:
+        min_price, max_price = price.split(" - ")
+    if min_price is not None:
+        min_price = min_price.replace("₫", "").replace(".", "").strip()
+    if max_price is not None:
+        max_price = max_price.replace("₫", "").replace(".", "").strip()
+    return min_price, max_price
+
 def convert_price(price):
     if price and type(price) == str:
         price_characters = ["K", "M", "B"]
